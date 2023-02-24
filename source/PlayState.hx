@@ -1592,7 +1592,6 @@ class PlayState extends MusicBeatState
 			FlxG.sound.cache(Paths.inst(PlayState.SONG.songId));
 
 		// Song duration in a float, useful for the time left feature
-		songLength = ((FlxG.sound.music.length / songMultiplier) / 1000);
 
 		Conductor.crochet = ((60 / (SONG.bpm) * 1000));
 		Conductor.stepCrochet = Conductor.crochet / 4;
@@ -1608,7 +1607,7 @@ class PlayState extends MusicBeatState
 			songPosBar = new FlxBar(640 - (Std.int(songPosBG.width - 100) / 2), songPosBG.y + 4, LEFT_TO_RIGHT, Std.int(songPosBG.width - 100),
 				Std.int(songPosBG.height + 6), this, 'songPositionBar', 0, songLength);
 			songPosBar.scrollFactor.set();
-			songPosBar.createFilledBar(FlxColor.BLACK, FlxColor.fromRGB(0, 255, 128));
+			songPosBar.createFilledBar(FlxColor.BLACK, dad.barColor);
 			add(songPosBar);
 
 			bar = new FlxSprite(songPosBar.x, songPosBar.y).makeGraphic(Math.floor(songPosBar.width), Math.floor(songPosBar.height), FlxColor.TRANSPARENT);
